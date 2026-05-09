@@ -12,8 +12,54 @@ no profinet
 !
 !
 !
+ip dhcp excluded-address 10.3.10.2 10.3.10.10
+ip dhcp excluded-address 10.3.20.2 10.3.20.10
+ip dhcp excluded-address 10.3.30.2 10.3.30.10
+ip dhcp excluded-address 10.3.40.2 10.3.40.10
+ip dhcp excluded-address 10.4.0.2  10.4.0.10
+ip dhcp excluded-address 10.5.0.2  10.5.0.10
+ip dhcp excluded-address 10.6.0.2  10.6.0.10
 !
 !
+ip dhcp pool BIRIM1
+ Des VLAN 310, BIRIM1
+ network 10.3.10.0 255.255.255.0
+ default-router 10.3.10.1
+ dns-server 8.8.8.8
+ip dhcp pool BIRIM2
+ Des VLAN 320, BIRIM2
+ network 10.3.20.0 255.255.255.0
+ default-router 10.3.20.1
+ dns-server 8.8.8.8
+ip dhcp pool BIRIM3
+ Des VLAN 330, BIRIM3
+ network 10.3.30.0 255.255.255.0
+ default-router 10.3.30.1
+ dns-server 8.8.8.8
+ip dhcp pool BIRIM4
+ Des VLAN 340, BIRIM4
+ network 10.3.40.0 255.255.255.0
+ default-router 10.3.40.1
+ dns-server 8.8.8.8
+
+ip dhcp pool DERSLIKLER
+ Des VLAN 400, DERSLIKLER
+ network 10.4.0.0 255.255.255.0
+ default-router 10.4.0.1
+ dns-server 8.8.8.8
+
+ip dhcp pool KANTINLER
+ Des VLAN 500, KANTINLER	
+ network 10.5.0.0 255.255.255.0
+ default-router 10.5.0.1
+ dns-server 8.8.8.8
+
+ip dhcp pool KUTUPHANE
+ Des VLAN 600, KUTUPHANE
+ network 10.6.0.0 255.255.0.0
+ default-router 10.6.0.1
+ dns-server 8.8.8.8
+
 no ip cef
 ip routing
 !
@@ -67,12 +113,24 @@ interface GigabitEthernet1/0/8
 interface GigabitEthernet1/0/9
 !
 interface GigabitEthernet1/0/10
+ switchport mode trunk
+ switchport trunk allowed vlan 310,320,330,340
+	switchport trunk native vlan 99
 !
 interface GigabitEthernet1/0/11
+	switchport mode trunk
+	switchport trunk allowed vlan 600
+	switchport trunk native vlan 99
 !
 interface GigabitEthernet1/0/12
+	switchport mode trunk
+	switchport mode allowed vlan 400
+	switchport trunk native vlan 99
 !
 interface GigabitEthernet1/0/13
+	switchport mode trunk
+	switchport mode allowed vlan 500
+	switchport trunk native vlan 99
 !
 interface GigabitEthernet1/0/14
 !
@@ -108,11 +166,36 @@ interface Vlan1
  no ip address
  shutdown
 !
+interface Vlan99
+ ip address 10.99.0.1 255.255.255.0
+
+interface Vlan310
+	ip address 10.3.10.1 255.255.255.0
+interface Vlan320
+	ip address 10.3.20.1 255.255.255.0
+interface Vlan330
+	ip address 10.3.30.1 255.255.255.0
+interface Vlan340
+	ip address 10.3.40.1 255.255.255.0
+interface Vlan400
+	ip address 10.4.0.1 255.255.255.0
+interface Vlan500
+	ip address 10.4.0.1 255.255.255.0
+interface Vlan600
+	ip address 10.6.0.1 255.255.0.0
+
 router ospf 1
  router-id 11.11.11.11
  log-adjacency-changes
  network 10.0.0.0 0.0.0.3 area 0
  network 1.1.1.1 0.0.0.0 area 0
+	network 10.3.10.0 0.0.0.255 area 0
+	network 10.3.20.0 0.0.0.255 area 0
+	network 10.3.30.0 0.0.0.255 area 0
+	network 10.3.40.0 0.0.0.255 area 0
+	network 10.4.0.0 0.0.0.255 area 0
+	network 10.5.0.0 0.0.0.255 area 0
+	network 10.6.0.0 0.0.255.255 area 0
 !
 ip classless
 !

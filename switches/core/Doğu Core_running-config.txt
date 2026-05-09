@@ -15,14 +15,17 @@ ip dhcp excluded-address 10.225.0.2 10.225.0.10
 ip dhcp excluded-address 10.250.0.2 10.250.0.10
 !
 ip dhcp pool STADYUM
+ Des VLAN 200, STADYUM
  network 10.200.0.0 255.255.255.0
  default-router 10.200.0.1
  dns-server 8.8.8.8
 ip dhcp pool OFIS
+ Des VLAN 250, OFİSLER
  network 10.250.0.0 255.255.255.0
  default-router 10.250.0.1
  dns-server 8.8.8.8
 ip dhcp pool KAPALISALON
+ Des VLAN 225, KAPALI SALON
  network 10.225.0.0 255.255.255.0
  default-router 10.225.0.1
  dns-server 8.8.8.8
@@ -56,6 +59,7 @@ spanning-tree mode pvst
 !
 !
 interface Loopback0
+ Des routerın kendisine ping atılabilmesi için bir loopback adresi
  ip address 2.2.2.2 255.255.255.255
 !
 interface GigabitEthernet1/0/1
