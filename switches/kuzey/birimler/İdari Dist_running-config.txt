@@ -33,20 +33,20 @@ interface FastEthernet0/8
 interface FastEthernet0/9
 !
 interface FastEthernet0/10
- switchport access vlan 310
- switchport mode access
+ switchport trunk native vlan 310
+ switchport mode trunk
 !
 interface FastEthernet0/11
- switchport access vlan 320
- switchport mode access
+ switchport trunk native vlan 320
+ switchport mode trunk
 !
 interface FastEthernet0/12
- switchport access vlan 330
- switchport mode access
+ switchport trunk native vlan 330
+ switchport mode trunk
 !
 interface FastEthernet0/13
- switchport access vlan 340
- switchport mode access
+ switchport trunk native vlan 340
+ switchport mode trunk
 !
 interface FastEthernet0/14
 !
@@ -91,7 +91,7 @@ interface Vlan330
  ip address 10.3.30.2 255.255.255.0
 interface Vlan340
  ip address 10.3.40.2 255.255.255.0
-ip default-gateway 10.200.0.1
+ip default-gateway 10.99.0.1
 
 !
 !
