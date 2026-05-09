@@ -30,7 +30,17 @@ no ipv6 cef
 !
 !
 !
+ip dhcp excluded-address 10.7.10.2 10.7.10.10
+ip dhcp excluded-address 10.7.20.2 10.7.20.10
 !
+ip dhcp pool BIRIM1
+ network 10.7.10.0 255.255.255.0
+ default-router 10.7.10.1
+ dns-server 8.8.8.8
+ip dhcp pool BIRIM2
+ network 10.7.20.0 255.255.255.0
+ default-router 10.7.20.1
+ dns-server 8.8.8.8
 !
 spanning-tree mode pvst
 !
@@ -67,9 +77,12 @@ interface GigabitEthernet1/0/9
 interface GigabitEthernet1/0/10
 !
 interface GigabitEthernet1/0/11
+ switchport access vlan 710
+ switchport mode access
 !
 interface GigabitEthernet1/0/12
-!
+ switchport access vlan 720
+ switchport mode access
 interface GigabitEthernet1/0/13
 !
 interface GigabitEthernet1/0/14
@@ -106,11 +119,22 @@ interface Vlan1
  no ip address
  shutdown
 !
+interface Vlan99
+ ip address 10.99.0.1 255.255.255.0
+!
+interface Vlan710
+ ip address 10.7.10.1 255.255.255.0
+!
+interface Vlan720
+ ip address 10.7.20.1 255.255.255.0
+!
 router ospf 1
  router-id 33.33.33.33
  log-adjacency-changes
  network 10.0.2.0 0.0.0.3 area 0
  network 3.3.3.3 0.0.0.0 area 0
+ network 10.7.10.0 0.0.0.255 area 0
+ network 10.7.20.0 0.0.0.255 area 0
 !
 ip classless
 !
