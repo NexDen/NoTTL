@@ -115,9 +115,8 @@ interface GigabitEthernet1/0/10
  switchport trunk native vlan 99
 !
 interface GigabitEthernet1/0/11
- switchport mode trunk
- switchport trunk allowed vlan 600
- switchport trunk native vlan 99
+ switchport access vlan 600
+ switchport mode access
 !
 interface GigabitEthernet1/0/12
  switchport mode trunk
@@ -125,9 +124,9 @@ interface GigabitEthernet1/0/12
  switchport trunk native vlan 99
 !
 interface GigabitEthernet1/0/13
- switchport mode trunk
- switchport trunk allowed vlan 500
- switchport trunk native vlan 99
+ switchport access vlan 500
+ switchport mode access
+ 
 !
 interface GigabitEthernet1/0/14
 !
