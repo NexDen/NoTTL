@@ -44,6 +44,8 @@ interface Loopback0
 !
 interface GigabitEthernet1/0/1
  no switchport
+ ip ospf network point-to-point
+ ip ospf priority 1
  ip address 10.0.3.2 255.255.255.252
  duplex auto
  speed auto

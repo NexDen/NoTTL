@@ -15,23 +15,17 @@ spanning-tree mode pvst
 spanning-tree extend system-id
 !
 interface FastEthernet0/1
- switchport trunk native vlan 330
- switchport mode trunk
-!
-interface range fa0/10 - 20
- switchport access vlan 330
+ switchport access vlan 720
  switchport mode access
 !
+interface FastEthernet0/2
+ switchport access vlan 720
+ switchport mode access
 !
-interface FastEthernet0/21
-!
-interface FastEthernet0/22
-!
-interface FastEthernet0/23
-!
-interface FastEthernet0/24
-!
+
 interface GigabitEthernet0/1
+ switchport trunk native vlan 720
+ switchport mode trunk
 !
 interface GigabitEthernet0/2
 !
@@ -39,9 +33,10 @@ interface Vlan1
  no ip address
  shutdown
 !
-interface Vlan330
- ip address 10.3.30.3
+interface Vlan720
+ ip address 10.7.20.2 255.255.255.0
 !
+ip default-gateway 10.7.20.1
 !
 !
 !

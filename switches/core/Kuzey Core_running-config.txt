@@ -111,7 +111,7 @@ interface GigabitEthernet1/0/9
 !
 interface GigabitEthernet1/0/10
  switchport mode trunk
- switchport trunk allowed vlan 310,320,330,340
+ switchport trunk allowed vlan 99,310,320,330,340
  switchport trunk native vlan 99
 !
 interface GigabitEthernet1/0/11
