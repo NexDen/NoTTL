@@ -4,7 +4,7 @@ no service timestamps log datetime msec
 no service timestamps debug datetime msec
 no service password-encryption
 !
-hostname KantinlerDistSwitch
+hostname DersliklerİdariDistSwitch
 !
 !
 !
@@ -14,13 +14,8 @@ hostname KantinlerDistSwitch
 spanning-tree mode pvst
 spanning-tree extend system-id
 !
-interface range FastEthernet0/1 - 24
- switchport access vlan 500
- switchport mode access
-!
-!
-interface GigabitEthernet0/1
- switchport access vlan 500
+interface range FastEthernet0/1-24
+ switchport access vlan 400
  switchport mode access
 !
 interface GigabitEthernet0/2
@@ -28,14 +23,13 @@ interface GigabitEthernet0/2
 interface Vlan1
  no ip address
  shutdown
+!
+!
+interface Vlan400
+ ip address 10.4.0.3 255.255.255.0
+!
+ip default-gateway 10.4.0.1
 
-interface Vlan500
- mac-address 000a.f3b6.9827
- ip address 10.5.0.2 255.255.255.0
-!
-ip default-gateway 10.5.0.1
-!
-!
 !
 line con 0
 !

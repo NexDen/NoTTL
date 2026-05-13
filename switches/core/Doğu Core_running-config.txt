@@ -4,30 +4,30 @@ no service timestamps log datetime msec
 no service timestamps debug datetime msec
 no service password-encryption
 !
-hostname Switch
+hostname DoğuCore
 !
 !
 no profinet
 !
 !
-ip dhcp excluded-address 10.200.0.2 10.200.0.10
-ip dhcp excluded-address 10.225.0.2 10.225.0.10
-ip dhcp excluded-address 10.250.0.2 10.250.0.10
+ip dhcp excluded-address 10.2.0.2 10.2.0.10
+ip dhcp excluded-address 10.2.25.2 10.2.25.10
+ip dhcp excluded-address 10.2.50.2 10.2.50.10
 !
 ip dhcp pool STADYUM
  Des VLAN 200, STADYUM
- network 10.200.0.0 255.255.255.0
- default-router 10.200.0.1
+ network 10.2.0.0 255.255.255.0
+ default-router 10.2.0.1
  dns-server 8.8.8.8
 ip dhcp pool OFIS
  Des VLAN 250, OFİSLER
- network 10.250.0.0 255.255.255.0
- default-router 10.250.0.1
+ network 10.2.50.0 255.255.255.0
+ default-router 10.2.50.1
  dns-server 8.8.8.8
 ip dhcp pool KAPALISALON
  Des VLAN 225, KAPALI SALON
- network 10.225.0.0 255.255.255.0
- default-router 10.225.0.1
+ network 10.2.25.0 255.255.255.0
+ default-router 10.2.25.1
  dns-server 8.8.8.8
 
 !
@@ -135,14 +135,14 @@ interface Vlan1
 !
 interface Vlan200
  mac-address 0090.21be.9b01
- ip address 10.200.0.1 255.255.255.0
+ ip address 10.2.0.1 255.255.255.0
 !
 interface Vlan225
- ip address 10.225.0.1 255.255.255.0
+ ip address 10.2.25.1 255.255.255.0
 !
 interface Vlan250
  mac-address 0090.21be.9b03
- ip address 10.250.0.1 255.255.255.0
+ ip address 10.2.50.1 255.255.255.0
 !
 !
 router ospf 1
@@ -150,9 +150,9 @@ router ospf 1
  log-adjacency-changes
  network 10.0.1.0 0.0.0.3 area 0
  network 2.2.2.2 0.0.0.0 area 0
- network 10.200.0.0 0.0.0.255 area 0
- network 10.225.0.0 0.0.0.255 area 0
- network 10.250.0.0 0.0.0.255 area 0
+ network 10.2.0.0 0.0.0.255 area 0
+ network 10.2.25.0 0.0.0.255 area 0
+ network 10.2.50.0 0.0.0.255 area 0
 !
 ip classless
 !

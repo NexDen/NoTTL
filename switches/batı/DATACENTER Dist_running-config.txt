@@ -4,7 +4,7 @@ no service timestamps log datetime msec
 no service timestamps debug datetime msec
 no service password-encryption
 !
-hostname KütüphaneDistSwitch
+hostname DatacenterSwitch
 !
 !
 !
@@ -13,30 +13,24 @@ hostname KütüphaneDistSwitch
 !
 spanning-tree mode pvst
 spanning-tree extend system-id
-
-interface range FastEthernet0/1 - 24
- switchport access vlan 600
- switchport mode access
 !
-
-interface GigabitEthernet0/1
- switchport access vlan 600
+interface range FastEthernet0/1 - 10
  switchport mode access
+ switchport access vlan 1010
+!
+interface GigabitEthernet0/1
+ switchport mode access
+ switchport access vlan 1010
 !
 
 interface Vlan1
  no ip address
  shutdown
+
+interface Vlan1010
+ ip address 10.10.10.2 255.255.255.0
 !
-interface Vlan99
- mac-address 0001.43da.ee84
- ip address 10.99.0.2 255.255.255.0
-!
-interface Vlan600
- mac-address 000a.f3b6.9827
- ip address 10.6.0.2 255.255.0.0
-!
-ip default-gateway 10.6.0.1
+ip default-gateway 10.10.10.1
 !
 !
 !

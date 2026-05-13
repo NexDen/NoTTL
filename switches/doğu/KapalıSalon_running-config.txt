@@ -4,7 +4,7 @@ no service timestamps log datetime msec
 no service timestamps debug datetime msec
 no service password-encryption
 !
-hostname Switch
+hostname KapalıSalonSwitch
 !
 !
 !
@@ -77,9 +77,9 @@ interface Vlan1
  shutdown
 
 interface Vlan225
- ip address 10.225.0.2 255.255.255.0
+ ip address 10.2.25.2 255.255.255.0
 !
-ip default-gateway 10.225.0.1
+ip default-gateway 10.2.25.1
 !
 !
 !
