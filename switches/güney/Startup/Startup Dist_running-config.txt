@@ -78,9 +78,9 @@ interface Vlan1
 interface Vlan99
  ip address 10.99.0.2 255.255.255.0
 interface Vlan810
- ip address 10.8.10.2 255.255.255.0
+ ip address 10.8.10.2 255.255.255.240
 interface Vlan820
- ip address 10.8.20.2 255.255.255.0
+ ip address 10.8.20.2 255.255.255.240
 ip default-gateway 10.99.0.1
 
 !

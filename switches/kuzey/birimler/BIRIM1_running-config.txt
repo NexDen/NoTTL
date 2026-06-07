@@ -22,7 +22,7 @@ interface Vlan1
  shutdown
 !
 interface Vlan310
- ip address 10.3.10.3 255.255.255.0
+ ip address 10.3.10.3 255.255.255.240
 !
 ip default-gateway 10.3.10.1
 !

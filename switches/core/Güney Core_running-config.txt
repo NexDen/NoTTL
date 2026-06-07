@@ -59,11 +59,11 @@ ip dhcp pool DEPT2
  default-router 10.7.40.1
  dns-server 8.8.8.8
 ip dhcp pool STARTUP1
- network 10.8.10.0 255.255.255.0
+ network 10.8.10.0 255.255.255.240
  default-router 10.8.10.1
  dns-server 8.8.8.8
 ip dhcp pool STARTUP2
- network 10.8.20.0 255.255.255.0
+ network 10.8.20.0 255.255.255.240
  default-router 10.8.20.1
  dns-server 8.8.8.8
 !
@@ -109,12 +109,12 @@ interface GigabitEthernet1/0/9
 interface GigabitEthernet1/0/10
 !
 interface GigabitEthernet1/0/11
- switchport access vlan 740
- switchport mode access
+ switchport trunk allowed vlan 99,730,740
+ switchport mode trunk
+ switchport trunk native vlan 99
 !
 interface GigabitEthernet1/0/12
- switchport access vlan 730
- switchport mode access
+!
 interface GigabitEthernet1/0/13
 !
 interface GigabitEthernet1/0/14
@@ -168,9 +168,9 @@ interface Vlan740
  ip address 10.7.40.1 255.255.255.0
 !
 interface Vlan810
- ip address 10.8.10.1 255.255.255.0
+ ip address 10.8.10.1 255.255.255.240
 interface Vlan820
- ip address 10.8.20.1 255.255.255.0
+ ip address 10.8.20.1 255.255.255.240
 !
 router ospf 1
  router-id 33.33.33.33
@@ -182,8 +182,8 @@ router ospf 1
  network 10.7.20.0 0.0.0.255 area 0
  network 10.7.30.0 0.0.0.255 area 0
  network 10.7.40.0 0.0.0.255 area 0
- network 10.8.10.0 0.0.0.255 area 0
- network 10.8.20.0 0.0.0.255 area 0
+ network 10.8.10.0 0.0.0.15 area 0
+ network 10.8.20.0 0.0.0.15 area 0
 !
 ip classless
 !

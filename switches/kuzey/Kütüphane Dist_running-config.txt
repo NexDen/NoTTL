@@ -34,7 +34,7 @@ interface Vlan99
 !
 interface Vlan600
  mac-address 000a.f3b6.9827
- ip address 10.6.0.2 255.255.0.0
+ ip address 10.6.0.2 255.255.254.0
 !
 ip default-gateway 10.6.0.1
 !

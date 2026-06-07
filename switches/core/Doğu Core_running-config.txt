@@ -21,7 +21,7 @@ ip dhcp pool STADYUM
  dns-server 8.8.8.8
 ip dhcp pool OFIS
  Des VLAN 250, OFİSLER
- network 10.2.50.0 255.255.255.0
+ network 10.2.50.0 255.255.255.240
  default-router 10.2.50.1
  dns-server 8.8.8.8
 ip dhcp pool KAPALISALON
@@ -142,7 +142,7 @@ interface Vlan225
 !
 interface Vlan250
  mac-address 0090.21be.9b03
- ip address 10.2.50.1 255.255.255.0
+ ip address 10.2.50.1 255.255.255.240
 !
 !
 router ospf 1
@@ -152,7 +152,7 @@ router ospf 1
  network 2.2.2.2 0.0.0.0 area 0
  network 10.2.0.0 0.0.0.255 area 0
  network 10.2.25.0 0.0.0.255 area 0
- network 10.2.50.0 0.0.0.255 area 0
+ network 10.2.50.0 0.0.0.15 area 0
 !
 ip classless
 !

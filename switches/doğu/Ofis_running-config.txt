@@ -81,7 +81,7 @@ interface Vlan1
  shutdown
 !
 interface Vlan250
- ip address 10.2.50.2 255.255.255.0
+ ip address 10.2.50.2 255.255.255.240
 !
 ip default-gateway 10.2.50.1
 !
